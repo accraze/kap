@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="lr3gcB" name="KadenzeAudioPlugin" projectType="audioplug"
+              jucerVersion="5.4.3">
+  <MAINGROUP id="pgsUr5" name="KadenzeAudioPlugin">
+    <GROUP id="{148EC691-5C30-F0F3-4C70-0B8AACDC29FE}" name="Panels">
+      <FILE id="PIDway" name="KAPCenterPanel.cpp" compile="1" resource="0"
+            file="Source/KAPCenterPanel.cpp"/>
+      <FILE id="JFV9HX" name="KAPCenterPanel.h" compile="0" resource="0"
+            file="Source/KAPCenterPanel.h"/>
+      <FILE id="V3fPKO" name="KAPCenterPanelMenuBar.cpp" compile="1" resource="0"
+            file="Source/KAPCenterPanelMenuBar.cpp"/>
+      <FILE id="olePsk" name="KAPCenterPanelMenuBar.h" compile="0" resource="0"
+            file="Source/KAPCenterPanelMenuBar.h"/>
+      <FILE id="jnWJLg" name="KAPFxPanel.cpp" compile="1" resource="0" file="Source/KAPFxPanel.cpp"/>
+      <FILE id="ukfE7l" name="KAPFxPanel.h" compile="0" resource="0" file="Source/KAPFxPanel.h"/>
+      <FILE id="bmDI7U" name="KAPGainPanel.cpp" compile="1" resource="0"
+            file="Source/KAPGainPanel.cpp"/>
+      <FILE id="OKsHIU" name="KAPGainPanel.h" compile="0" resource="0" file="Source/KAPGainPanel.h"/>
+      <FILE id="rxpNOP" name="KAPMainPanel.cpp" compile="1" resource="0"
+            file="Source/KAPMainPanel.cpp"/>
+      <FILE id="oDvpzZ" name="KAPMainPanel.h" compile="0" resource="0" file="Source/KAPMainPanel.h"/>
+      <FILE id="qkc0uu" name="KAPPanelBase.cpp" compile="1" resource="0"
+            file="Source/KAPPanelBase.cpp"/>
+      <FILE id="ax2L9C" name="KAPPanelBase.h" compile="0" resource="0" file="Source/KAPPanelBase.h"/>
+      <FILE id="IxUjo4" name="KAPTopPanel.cpp" compile="1" resource="0" file="Source/KAPTopPanel.cpp"/>
+      <FILE id="Ki5gNm" name="KAPTopPanel.h" compile="0" resource="0" file="Source/KAPTopPanel.h"/>
+    </GROUP>
+    <GROUP id="{4A4BCA4E-359C-2ABA-3236-99CE1C5C5192}" name="Helpers">
+      <FILE id="sExK3f" name="KAPAudioHelpers.h" compile="0" resource="0"
+            file="Source/KAPAudioHelpers.h"/>
+      <FILE id="aaB3q2" name="KAPInterfaceDefines.h" compile="0" resource="0"
+            file="Source/KAPInterfaceDefines.h"/>
+      <FILE id="vLfv0t" name="KAPParameters.h" compile="0" resource="0" file="Source/KAPParameters.h"/>
+    </GROUP>
+    <GROUP id="{414F394C-25FE-6560-7DDB-56A6C25DCBB2}" name="DSP">
+      <FILE id="UxiiwC" name="KAPDelay.cpp" compile="1" resource="0" file="Source/KAPDelay.cpp"/>
+      <FILE id="kHYT9D" name="KAPDelay.h" compile="0" resource="0" file="Source/KAPDelay.h"/>
+      <FILE id="hoisZV" name="KAPGain.cpp" compile="1" resource="0" file="Source/KAPGain.cpp"/>
+      <FILE id="SxxYGz" name="KAPGain.h" compile="0" resource="0" file="Source/KAPGain.h"/>
+      <FILE id="r2vEG6" name="KAPLfo.cpp" compile="1" resource="0" file="Source/KAPLfo.cpp"/>
+      <FILE id="RgXWIZ" name="KAPLfo.h" compile="0" resource="0" file="Source/KAPLfo.h"/>
+    </GROUP>
+    <GROUP id="{197649F9-2D56-29AF-1BE4-924AD04A960A}" name="Source">
+      <FILE id="Dp4LO6" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="ybdrQX" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="kWyYuA" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="SzFThu" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+  <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+</JUCERPROJECT>
