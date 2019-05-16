@@ -10,6 +10,7 @@
 
 #include "KAPFxPanel.h"
 #include "KAPParameters.h"
+#include "KAPHelperFunctions.h"
 
 KAPFxPanel::KAPFxPanel(KadenzeAudioPluginAudioProcessor* inProcessor)
 : KAPPanelBase(inProcessor)
@@ -31,11 +32,11 @@ void KAPFxPanel::paint(Graphics& g)
     switch(mStyle)
     {
         case (kKAPFxPanelStyle_Delay): {
-            g.drawFittedText("DELAY", 0, 0, getWidth(), getHeight(), Justification::centred, 1);
+            g.drawFittedText("DELAY", 0, 0, getWidth(), getHeight() * 0.75, Justification::centred, 1);
         } break;
             
         case (kKAPFxPanelStyle_Chorus): {
-            g.drawFittedText("CHORUS", 0, 0, getWidth(), getHeight(), Justification::centred, 1);
+            g.drawFittedText("CHORUS", 0, 0, getWidth(), getHeight() * 0.75, Justification::centred, 1);
         } break;
             
         default:
@@ -44,7 +45,10 @@ void KAPFxPanel::paint(Graphics& g)
             jassertfalse;
         } break;
     }
-    
+    for(int i=0; i < mSliders.size(); i++)
+    {
+        paintComponentLabel(g, mSliders[i]);
+    }
 }
 
 void KAPFxPanel::setFxPanelStyle(KAPFxPanelStyle inStyle)

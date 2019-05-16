@@ -39,6 +39,8 @@
     <GROUP id="{4A4BCA4E-359C-2ABA-3236-99CE1C5C5192}" name="Helpers">
       <FILE id="sExK3f" name="KAPAudioHelpers.h" compile="0" resource="0"
             file="Source/KAPAudioHelpers.h"/>
+      <FILE id="uCU6Pl" name="KAPHelperFunctions.h" compile="0" resource="0"
+            file="Source/KAPHelperFunctions.h"/>
       <FILE id="aaB3q2" name="KAPInterfaceDefines.h" compile="0" resource="0"
             file="Source/KAPInterfaceDefines.h"/>
       <FILE id="vLfv0t" name="KAPParameters.h" compile="0" resource="0" file="Source/KAPParameters.h"/>
