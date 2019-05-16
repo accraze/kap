@@ -15,7 +15,7 @@
 KAPDelay::KAPDelay()
 :    mSampleRate(-1),
      mFeedbackSample(0.0),
-     mTimeSmoothed(0),
+     mTimeSmoothed(0.0f),
      mDelayIndex(0)
 {
     
@@ -51,6 +51,7 @@ void  KAPDelay::process(float* inAudio,
     
     for(int i = 0; i < inNumSamplesToRender; i++){
         const double delayTimeModulation = (inTime + (0.002 * inModulationBuffer[i]));
+        
         mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine*(mTimeSmoothed-(delayTimeModulation));
         
         const double delayTimeInSamples = (mTimeSmoothed * mSampleRate);

@@ -166,13 +166,12 @@ void KadenzeAudioPluginAudioProcessor::processBlock (AudioBuffer<float>& buffer,
     {
         auto* channelData = buffer.getWritePointer (channel);
         
-        mGain[channel]->process(channelData,
+        mInputGain[channel]->process(channelData,
                                 getParameter(kParameter_InputGain),
                                 channelData,
                                 buffer.getNumSamples());
         
-        float rate = (channel==0) ? 0 : getParameter(kParameter_ModulationRate);
-        
+        float rate = (channel==0) ? getParameter(kParameter_ModulationRate) : 0;
         mLfo[channel]->process(rate, getParameter(kParameter_ModulationDepth), buffer.getNumSamples());
         
         mDelay[channel]->process(channelData,
@@ -182,6 +181,11 @@ void KadenzeAudioPluginAudioProcessor::processBlock (AudioBuffer<float>& buffer,
                                  mLfo[channel]->getBuffer(),
                                  channelData,
                                  buffer.getNumSamples());
+        
+        mOutputGain[channel]->process(channelData,
+                                      getParameter(kParameter_OutputGain),
+                                      channelData,
+                                      buffer.getNumSamples());
     }
 }
 
@@ -213,9 +217,10 @@ void KadenzeAudioPluginAudioProcessor::setStateInformation (const void* data, in
 void KadenzeAudioPluginAudioProcessor::initializeDSP()
 {
     for(int i = 0; i < 2; i++){
-        mGain[i].reset(new KAPGain());
+        mInputGain[i].reset(new KAPGain());
         mDelay[i].reset(new KAPDelay());
         mLfo[i].reset(new KAPLfo());
+        mOutputGain[i].reset(new KAPGain());
     }
 }
 
@@ -223,13 +228,14 @@ void KadenzeAudioPluginAudioProcessor::initializeDSP()
 void KadenzeAudioPluginAudioProcessor::initializeParameters()
 {
     for(int i = 0; i < kParameter_TotalNumParameters; i++) {
-        parameters.createAndAddParameter(KAPParameterID[i],
+        using Parameter = AudioProcessorValueTreeState::Parameter;
+        parameters.createAndAddParameter(std::make_unique<Parameter>(KAPParameterID[i],
                                          KAPParameterID[i],
                                          KAPParameterID[i],
                                          NormalisableRange<float>(0.0f, 1.0f),
                                          0.5f,
                                          nullptr,
-                                         nullptr);
+                                         nullptr));
     }
     parameters.state = ValueTree("KADENZE AUDIO PLUGIN");
 }

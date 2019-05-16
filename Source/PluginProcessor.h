@@ -66,9 +66,11 @@ private:
     
     /** internal */
     void initializeParameters();
-    std::unique_ptr<KAPGain> mGain [2];
-    std::unique_ptr<KAPDelay> mDelay [2];
+    
+    std::unique_ptr<KAPGain> mInputGain[2];
+    std::unique_ptr<KAPDelay> mDelay[2];
     std::unique_ptr<KAPLfo> mLfo[2];
+    std::unique_ptr<KAPGain> mOutputGain[2];
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KadenzeAudioPluginAudioProcessor)

@@ -43,7 +43,7 @@ void KAPLfo::process(float inRate, float inDepth, int inNumSamples)
             mPhase = mPhase - 1.0f;
         }
         
-        const float lfoPostion = sinf(mPhase * k2Pi);
+        const float lfoPostion = sinf(mPhase * k2Pi) * inDepth;
         mBuffer[i] = lfoPostion;
     }
 }
