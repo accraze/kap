@@ -17,7 +17,9 @@ KAPFxPanel::KAPFxPanel(KadenzeAudioPluginAudioProcessor* inProcessor)
 //  mStyle(kKAPFxPanelStyle_Delay)
 {
     setSize(FX_PANEL_WIDTH, FX_PANEL_HEIGHT);
-    setFxPanelStyle(kKAPFxPanelStyle_Delay);
+    
+    const int currentStyle = (int)mProcessor->getParameter(kParameter_DelayType);
+    setFxPanelStyle((KAPFxPanelStyle) currentStyle);
 }
 
 KAPFxPanel::~KAPFxPanel()
@@ -109,4 +111,11 @@ void KAPFxPanel::setFxPanelStyle(KAPFxPanelStyle inStyle)
             jassertfalse;
         } break;
     }
+    repaint();
+}
+
+void KAPFxPanel::comboBoxChanged(ComboBox* comboBoxThatHasChanged)
+{
+    KAPFxPanelStyle style = (KAPFxPanelStyle)comboBoxThatHasChanged->getSelectedItemIndex();
+    setFxPanelStyle(style);
 }

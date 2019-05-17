@@ -12,6 +12,12 @@
 #include "JuceHeader.h"
 #include "KAPAudioHelpers.h"
 
+enum KAPDelayType
+{
+    kKAPDelayType_Delay = 0,
+    kKAPDelayType_Chorus,
+};
+
 KAPDelay::KAPDelay()
 :    mSampleRate(-1),
      mFeedbackSample(0.0),
@@ -41,6 +47,7 @@ void  KAPDelay::process(float* inAudio,
               float inTime,
               float inFeedback,
               float inWetDry,
+              float inType,
               float* inModulationBuffer,
               float* outAudio,
               int inNumSamplesToRender)
@@ -50,9 +57,14 @@ void  KAPDelay::process(float* inAudio,
     const float feedbackMapped = jmap(inFeedback, 0.0f, 1.0f, 0.0f, 0.95f);
     
     for(int i = 0; i < inNumSamplesToRender; i++){
-        const double delayTimeModulation = (inTime + (0.002 * inModulationBuffer[i]));
         
-        mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine*(mTimeSmoothed-(delayTimeModulation));
+        if((int)inType == kKAPDelayType_Delay)
+        {
+            mTimeSmoothed = mTimeSmoothed = kParameterSmoothingCoeff_Fine*(mTimeSmoothed-inTime);
+        } else {
+            const double delayTimeModulation = (0.003 + (0.002 * inModulationBuffer[i]));
+            mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine*(mTimeSmoothed-(delayTimeModulation));
+        }
         
         const double delayTimeInSamples = (mTimeSmoothed * mSampleRate);
         const double sample = getInterpolatedSample(delayTimeInSamples);

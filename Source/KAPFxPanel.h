@@ -21,7 +21,8 @@ enum KAPFxPanelStyle
 };
 
 class KAPFxPanel
-:   public KAPPanelBase
+:   public KAPPanelBase,
+    public ComboBox::Listener
 {
 public:
     KAPFxPanel(KadenzeAudioPluginAudioProcessor* inProcessor);
@@ -29,6 +30,8 @@ public:
     
     void setFxPanelStyle(KAPFxPanelStyle inStyle);
     void paint(Graphics& g) override;
+    void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
+    
 private:
     KAPFxPanelStyle mStyle;
     

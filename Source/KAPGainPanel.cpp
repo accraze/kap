@@ -10,6 +10,7 @@
 
 #include "KAPGainPanel.h"
 #include "KAPParameters.h"
+#include "KAPHelperFunctions.h"
 
 KAPGainPanel::KAPGainPanel(KadenzeAudioPluginAudioProcessor* inProcessor)
 :    KAPPanelBase(inProcessor)
@@ -20,6 +21,15 @@ KAPGainPanel::KAPGainPanel(KadenzeAudioPluginAudioProcessor* inProcessor)
 KAPGainPanel::~KAPGainPanel()
 {
     
+}
+
+void KAPGainPanel::paint(Graphics& g)
+{
+    KAPPanelBase::paint(g);
+    
+    if(mSlider){
+        paintComponentLabel(g, &*mSlider);
+    }
 }
 
 void KAPGainPanel::setParameterID(int inParameterID)
