@@ -13,7 +13,9 @@
 #include "KAPInterfaceDefines.h"
 
 class KAPTopPanel
-: public KAPPanelBase
+: public KAPPanelBase,
+  public Button::Listener,
+  public ComboBox::Listener
 {
 public:
     KAPTopPanel(KadenzeAudioPluginAudioProcessor* inProcessor);
@@ -21,6 +23,18 @@ public:
     
     void paint (Graphics &g) override;
     
-protected:
+    void buttonClicked(Button* b) override;
+    void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
+    
+private:
+    
+    void displaySaveAsPopup();
+    
+    void updatePresetComboBox();
+    
+    std::unique_ptr<ComboBox> mPresetDisplay;
+    
+    std::unique_ptr<TextButton> mNewPreset, mSavePreset, mSaveAsPreset;
+    
     KadenzeAudioPluginAudioProcessor* mProcessor;
 };
