@@ -18,10 +18,15 @@ inline void paintComponentLabel(Graphics& g, Component* inComponent)
     const int y = inComponent->getY() + inComponent->getHeight();
     const int w = inComponent->getWidth() * 1.5f;
     const int h = 20;
+    const float cornerSize = 3.0f;
+    
+    g.setColour(KAPColour_3);
+    g.fillRoundedRectangle(x, y, w, h, cornerSize);
+    
+    g.setColour(KAPColour_1);
+    g.setFont(font_1);
     
     const String label = inComponent->getName();
-//    const float cornerSize = 3.0f;
-    
-    g.setColour(Colours::darkgrey);
+
     g.drawFittedText(label, x, y, w, h, Justification::centred, 1);
 }
