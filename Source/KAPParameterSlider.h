@@ -16,7 +16,9 @@ class KAPParameterSlider
 :    public Slider
 {
 public:
-    KAPParameterSlider(AudioProcessorValueTreeState& stateToControl, const String& parameterId);
+    KAPParameterSlider(AudioProcessorValueTreeState& stateToControl,
+                       const String& parameterId,
+                       const String& parameterLabel);
     ~KAPParameterSlider();
 private:
     std::unique_ptr<AudioProcessorValueTreeState::SliderAttachment> mAttachment;

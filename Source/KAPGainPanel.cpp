@@ -34,7 +34,7 @@ void KAPGainPanel::paint(Graphics& g)
 
 void KAPGainPanel::setParameterID(int inParameterID)
 {
-    mSlider.reset(new KAPParameterSlider(mProcessor->parameters, KAPParameterID[inParameterID]));
+    mSlider.reset(new KAPParameterSlider(mProcessor->parameters, KAPParameterID[inParameterID], KAPParameterLabel[inParameterID]));
     const int slider_size = 54;
     
     mSlider->setBounds((getWidth() * 0.5) - (slider_size *0.5),

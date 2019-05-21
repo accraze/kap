@@ -23,6 +23,18 @@ enum KAPParameter
     kParameter_TotalNumParameters,
 };
 
+static String KAPParameterLabel [kParameter_TotalNumParameters] =
+{
+    "Input Gain",
+    "Time",
+    "Feedback",
+    "Wet Dry",
+    "Type",
+    "Output Gain",
+    "Modulation Rate",
+    "Modulation Depth",
+};
+
 static String KAPParameterID [kParameter_TotalNumParameters] =
 {
     "InputGain",

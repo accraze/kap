@@ -10,8 +10,10 @@
 
 #include "KAPParameterSlider.h"
 
-KAPParameterSlider::KAPParameterSlider(AudioProcessorValueTreeState& stateToControl, const String& parameterId)
-: juce::Slider(parameterId)
+KAPParameterSlider::KAPParameterSlider(AudioProcessorValueTreeState& stateToControl,
+                                       const String& parameterId,
+                                       const String& parameterLabel)
+: juce::Slider(parameterLabel)
 {
     setSliderStyle(SliderStyle::RotaryHorizontalVerticalDrag);
     setTextBoxStyle(Slider::TextEntryBoxPosition::TextBoxBelow, false, 0, 0);

@@ -11,6 +11,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "KAPLookAndFeel.h"
+
 //==============================================================================
 KadenzeAudioPluginAudioProcessorEditor::KadenzeAudioPluginAudioProcessorEditor (KadenzeAudioPluginAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
@@ -21,6 +23,12 @@ KadenzeAudioPluginAudioProcessorEditor::KadenzeAudioPluginAudioProcessorEditor (
     
     mMainPanel.reset(new KAPMainPanel(&processor));
     addAndMakeVisible(*mMainPanel);
+    
+    mLookAndFeel.reset(new KAPLookAndFeel());
+    setLookAndFeel(&*mLookAndFeel);
+    
+    LookAndFeel::setDefaultLookAndFeel(&*mLookAndFeel);
+    
 }
 
 KadenzeAudioPluginAudioProcessorEditor::~KadenzeAudioPluginAudioProcessorEditor()

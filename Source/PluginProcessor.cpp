@@ -249,7 +249,7 @@ void KadenzeAudioPluginAudioProcessor::initializeParameters()
         using Parameter = AudioProcessorValueTreeState::Parameter;
         parameters.createAndAddParameter(std::make_unique<Parameter>(KAPParameterID[i],
                                          KAPParameterID[i],
-                                         KAPParameterID[i],
+                                         KAPParameterLabel[i],
                                          NormalisableRange<float>(0.0f, 1.0f),
                                          0.5f,
                                          nullptr,
