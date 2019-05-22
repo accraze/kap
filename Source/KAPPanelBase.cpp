@@ -34,9 +34,11 @@ void KAPPanelBase::mouseExit(const MouseEvent& event)
 
 void KAPPanelBase::paint (Graphics &g)
 {
-    if(isMouseOver()){
-//        g.setColour(KAPColour_4);
-//        g.fillAll();
+    if(isMouseOver(true)){
+        const Colour hoverColour = Colour(Colours::black).withAlpha(0.4f);
+        
+        g.setColour(hoverColour);
+        g.fillAll();
     }
 }
 
