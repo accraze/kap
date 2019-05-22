@@ -37,7 +37,7 @@ public:
     
     //** buttons */
     
-    Font getTextButtonFont (TextButton&, int buttonHeight)
+    Font getTextButtonFont (TextButton&, int buttonHeight) override
     {
         return font_1;
     }

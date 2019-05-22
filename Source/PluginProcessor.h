@@ -16,6 +16,7 @@
 #include "KAPLfo.h"
 
 #include "KAPPresetManager.h"
+#include "KAPParameters.h"
 
 //==============================================================================
 /**
@@ -68,6 +69,20 @@ public:
     KAPPresetManager* getPresetManager()
     {
         return mPresetManager.get();
+    }
+    
+    AudioProcessorValueTreeState::ParameterLayout createParameterLayout()
+    {
+        std::vector<std::unique_ptr<AudioParameterFloat>> params;
+        
+        for(int i = 0; i < kParameter_TotalNumParameters; i++){
+            params.push_back(std::make_unique<AudioParameterFloat>(
+                                              KAPParameterID[i],
+                                              KAPParameterLabel[i],
+                                              NormalisableRange<float>(0.0f, 1.0f),
+                                              0.5f));
+        }
+        return {params.begin(), params.end()};
     }
     
 private:

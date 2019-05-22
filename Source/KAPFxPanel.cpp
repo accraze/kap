@@ -17,8 +17,9 @@ KAPFxPanel::KAPFxPanel(KadenzeAudioPluginAudioProcessor* inProcessor)
 //  mStyle(kKAPFxPanelStyle_Delay)
 {
     setSize(FX_PANEL_WIDTH, FX_PANEL_HEIGHT);
-    
-    const int currentStyle = (int)mProcessor->getParameter(kParameter_DelayType);
+    auto& parameters = mProcessor->getParameters();
+    AudioProcessorParameterWithID* type = (AudioProcessorParameterWithID*)parameters.getUnchecked(kParameter_DelayType);
+    const int currentStyle = (int)type->getValue();
     setFxPanelStyle((KAPFxPanelStyle) currentStyle);
 }
 

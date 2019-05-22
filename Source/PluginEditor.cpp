@@ -35,7 +35,7 @@ KadenzeAudioPluginAudioProcessorEditor::KadenzeAudioPluginAudioProcessorEditor (
 
 KadenzeAudioPluginAudioProcessorEditor::~KadenzeAudioPluginAudioProcessorEditor()
 {
-    mLookAndFeel.release();
+    setLookAndFeel(nullptr);
 }
 
 //==============================================================================
